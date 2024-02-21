@@ -1,15 +1,7 @@
-const pool = require('../utils/mysql')
+const lib = require("../utils/mysql")
 
-exports.findAll = (req,res) => {
-    pool.getConnectionPool((conn)=>{
-        const sql = "SELECT * FROM user_daily_record;"
-        conn.query(sql, (err,doc)=> {
-            if(err) console.log(err)
-            else {
-                console.log(doc)
-                res.json(doc);
-            }
-            conn.release();
-        })
-    })
+exports.findAll = async() => {
+    const query = "SELECT * FROM user_daily_record;"
+    rows = await lib.execute(query)
+    return rows
 }
