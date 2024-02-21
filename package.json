@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm-run-all --parallel start:**",
-    "start:server": "cd server && nodemon server",
+    "start:server": "cd server && nodemon --inspect server.js",
     "start:client": "cd client && npm start"
   },
   "author": "",
